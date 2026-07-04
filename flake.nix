@@ -161,7 +161,9 @@
         containerImage = helpers.makeTerminalContainer {
           inherit (containerConfig) name repo tag;
 
-          authorizedKeys = [ ];
+          authorizedKeys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIFyJWY7HrIhNP8c1Zm3QnPa8q3/b7sfa9oCr6Nl6IEU niten@jazz"
+          ];
 
           user = "fudo";
           packages = terminalPackages;
