@@ -297,8 +297,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1783135284,
-        "narHash": "sha256-yYaiqqkUWW96yKna6WcNkAJRZBlRsw5abILXvFExg/Q=",
+        "lastModified": 1783187325,
+        "narHash": "sha256-7wL7YKJGMT9q6AB+An75Fva0LikESYp6JOvs9ZM9Z3Q=",
         "path": "/net/projects/niten/grout",
         "type": "path"
       },
