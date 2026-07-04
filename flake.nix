@@ -16,12 +16,12 @@
     utils.url = "github:numtide/flake-utils";
 
     fudo-nix-helpers = {
-      url = "path:/net/projects/niten/nix-helpers";
+      url = "github:fudoniten/fudo-nix-helpers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     grout = {
-      url = "path:/net/projects/niten/grout";
+      url = "github:fudoniten/grout";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -161,9 +161,7 @@
         containerImage = helpers.makeTerminalContainer {
           inherit (containerConfig) name repo tag;
 
-          authorizedKeys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIFyJWY7HrIhNP8c1Zm3QnPa8q3/b7sfa9oCr6Nl6IEU niten@jazz"
-          ];
+          authorizedKeys = [ ];
 
           user = "fudo";
           packages = terminalPackages;
@@ -180,6 +178,7 @@
         deployContainer = helpers.deployTerminalContainer {
           inherit (containerConfig) name repo;
           user = "fudo";
+          authorizedKeys = [ ];
           packages = terminalPackages;
           env = containerEnv;
           enableGit = true;
@@ -193,6 +192,7 @@
         deployContainerVersioned = helpers.deployTerminalContainer {
           inherit (containerConfig) name repo;
           user = "fudo";
+          authorizedKeys = [ ];
           packages = terminalPackages;
           env = containerEnv;
           enableGit = true;
