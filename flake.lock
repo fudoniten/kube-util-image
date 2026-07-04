@@ -233,14 +233,17 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1778305905,
-        "narHash": "sha256-wfQrriz0KnXN1ihMObhVGBzbHTNtoF3RcRntHIN7vY8=",
-        "path": "/net/projects/niten/nix-helpers",
-        "type": "path"
+        "lastModified": 1775612747,
+        "narHash": "sha256-JIZtIumcQ+6lUANwdf3IDIgmifD0DA7Wu4A0kcEVW1w=",
+        "owner": "fudoniten",
+        "repo": "fudo-nix-helpers",
+        "rev": "a18e082c30d92fc573363f0e64aec0374adf085d",
+        "type": "github"
       },
       "original": {
-        "path": "/net/projects/niten/nix-helpers",
-        "type": "path"
+        "owner": "fudoniten",
+        "repo": "fudo-nix-helpers",
+        "type": "github"
       }
     },
     "gitignore": {
@@ -297,14 +300,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1783187325,
-        "narHash": "sha256-7wL7YKJGMT9q6AB+An75Fva0LikESYp6JOvs9ZM9Z3Q=",
-        "path": "/net/projects/niten/grout",
-        "type": "path"
+        "lastModified": 1783135351,
+        "narHash": "sha256-o80c4C6vm/FT/Dl9GHSoAeX6nmlTZDqeMJ2Kraoy/gw=",
+        "owner": "fudoniten",
+        "repo": "grout",
+        "rev": "a055296f3fa97245ad45f93ea625c41449e7b07b",
+        "type": "github"
       },
       "original": {
-        "path": "/net/projects/niten/grout",
-        "type": "path"
+        "owner": "fudoniten",
+        "repo": "grout",
+        "type": "github"
       }
     },
     "nix-fetcher-data": {
