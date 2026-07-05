@@ -35,6 +35,10 @@
 
         grout-cli = grout.packages."${system}".grout-cli;
 
+        authorizedKeys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrl31isnzPNup80KzUWX46rvXrhvUS22Q0dIIdcUEmj niten@jazz"
+        ];
+
         # Container registry settings
         containerConfig = {
           name = "kube-util";
@@ -161,7 +165,7 @@
         containerImage = helpers.makeTerminalContainer {
           inherit (containerConfig) name repo tag;
 
-          authorizedKeys = [ ];
+          inherit authorizedKeys;
 
           user = "fudo";
           packages = terminalPackages;
@@ -178,7 +182,7 @@
         deployContainer = helpers.deployTerminalContainer {
           inherit (containerConfig) name repo;
           user = "fudo";
-          authorizedKeys = [ ];
+          inherit authorizedKeys;
           packages = terminalPackages;
           env = containerEnv;
           enableGit = true;
@@ -192,7 +196,7 @@
         deployContainerVersioned = helpers.deployTerminalContainer {
           inherit (containerConfig) name repo;
           user = "fudo";
-          authorizedKeys = [ ];
+          inherit authorizedKeys;
           packages = terminalPackages;
           env = containerEnv;
           enableGit = true;
