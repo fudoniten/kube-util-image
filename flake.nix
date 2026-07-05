@@ -157,6 +157,22 @@
           TERM = "xterm-256color";
         };
 
+        # Additional sshd configuration (mirrors fudoniten/hermes-terminal).
+        # UsePAM is already disabled in the helper's base sshd_config, so we
+        # only need to opt into agent forwarding here.
+        extraSshdConfig = ''
+          # Allow agent forwarding for git operations
+          AllowAgentForwarding yes
+        '';
+
+        # Persist the sshd host keys on a dedicated volume so the server's
+        # identity stays stable across pod restarts. The helper generates host
+        # keys in /etc/ssh only when they are missing, and nothing else in this
+        # image writes to /etc/ssh (authorized_keys live in ~/.ssh, sshd_config
+        # lives in the Nix store), so mounting a PVC here gives us a persistent,
+        # host-key-only volume. See README.md for the Kubernetes manifests.
+        sshHostKeyVolumes = [ "/etc/ssh" ];
+
         # --------------------------------------------------------------------
         # Container definitions
         # --------------------------------------------------------------------
@@ -176,6 +192,12 @@
 
           # Enable nix if you want the agent to be able to install packages
           enableNix = true;
+
+          # Additional sshd configuration if needed
+          inherit extraSshdConfig;
+
+          # Persist sshd host keys on a PVC mounted at /etc/ssh
+          volumes = sshHostKeyVolumes;
         };
 
         # Deploy script for pushing to registry
@@ -187,6 +209,8 @@
           env = containerEnv;
           enableGit = true;
           enableNix = true;
+          inherit extraSshdConfig;
+          volumes = sshHostKeyVolumes;
 
           tags = [ "latest" ];
           verbose = true;
@@ -201,6 +225,8 @@
           env = containerEnv;
           enableGit = true;
           enableNix = true;
+          inherit extraSshdConfig;
+          volumes = sshHostKeyVolumes;
 
           tags = [ "v1.0.0" "latest" ];
           verbose = true;
