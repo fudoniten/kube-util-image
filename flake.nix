@@ -36,7 +36,8 @@
         grout-cli = grout.packages."${system}".grout-cli;
 
         authorizedKeys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrl31isnzPNup80KzUWX46rvXrhvUS22Q0dIIdcUEmj niten@jazz"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrl31isnzPNup80KzUWX46rvXrhvUS22Q0dIIdcUEmj"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOY8hUVuyf2Mpqd6TPxDaK/dc4mFdznUCh399TnoJKzk"
         ];
 
         # Container registry settings
