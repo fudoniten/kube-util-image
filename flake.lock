@@ -300,11 +300,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783190145,
-        "narHash": "sha256-rkjLjaiuRBpgfoYZTGkvRSYo0MSqyDZrFEEMzLLEgfc=",
+        "lastModified": 1783551043,
+        "narHash": "sha256-4T9eIVMnsD09p3Ww4l50LsGvSQOjA2MM2TI0gz2OuY8=",
         "owner": "fudoniten",
         "repo": "grout",
-        "rev": "7a6c96cea30523d16d88f4902b9e0bec49588ed9",
+        "rev": "d47cc050ef10400fbd5b80684c1063e54ed9081f",
         "type": "github"
       },
       "original": {
@@ -507,11 +507,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1783148766,
-        "narHash": "sha256-H9+N+GFtsbVC8ZniHliChM7ndizxtqVZs6bnGOLM3WQ=",
-        "rev": "a50de1b7d8a586adc18d2395c19de7d6058e6030",
+        "lastModified": 1783389287,
+        "narHash": "sha256-R5cxRkQCq5wIM91F9OkIEgu8YoSGjlMeTjYl9o4gpKw=",
+        "rev": "0ad6f47ea4fe188f4bc8f0380f93ae8523337c6c",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.4193.a50de1b7d8a5/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.4364.0ad6f47ea4fe/nixexprs.tar.xz"
       },
       "original": {
         "id": "nixpkgs",
