@@ -34,6 +34,7 @@
         helpers = fudo-nix-helpers.legacyPackages.${system};
 
         grout-cli = grout.packages."${system}".grout-cli;
+        grout-bulk = grout.packages."${system}".grout-bulk;
 
         authorizedKeys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrl31isnzPNup80KzUWX46rvXrhvUS22Q0dIIdcUEmj"
@@ -150,6 +151,7 @@
 
           # Additional utilities
           grout-cli
+          grout-bulk # resumable bulk uploader that drives grout-cli
         ];
 
         # Environment variables for the container
