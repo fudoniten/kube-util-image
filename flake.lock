@@ -300,11 +300,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783900002,
-        "narHash": "sha256-w+DmIztf65s3Jm6IxoFP1M7Q1zW5woHK8fk0SwHZROM=",
+        "lastModified": 1783920275,
+        "narHash": "sha256-ZVVaZjUKMjMMGOnoOLAx+BTG+nz/L8bl4am3ILfhEXA=",
         "owner": "fudoniten",
         "repo": "grout",
-        "rev": "1f108aaf2e91edfe3a5bb0593d4eb5a73029e75f",
+        "rev": "f6a7f5234697a8fec2f0e4fd87b1ab674fb91d80",
         "type": "github"
       },
       "original": {
