@@ -20,9 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # makemkv 2.0.0 lives in unstable (26.05 still ships the expired 1.18.4,
-    # which hard-refuses to run even with a current beta key — verified
-    # 2026-11-12 remuxing Forbidden Planet's BDMV).
+    # nixpkgs-unstable retained: nothing uses it now, but keeping the input
+    # documents the 2.0.0 experiment (v2.0.0 segfaults on `iso:` sources —
+    # verified 2026-11-12 on Zootopia + Grand Budapest ISOs; reverted to
+    # 1.18.4 + faketime wrapper, see makemkv-wrapped below).
     nixpkgs-unstable = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
@@ -55,10 +56,12 @@
 
         helpers = fudo-nix-helpers.legacyPackages.${system};
 
-        unstablePkgs = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
+        # nixpkgs-unstable is no longer referenced by any package (kept as an
+        # input for the experiment note above); remove when convenient.
+        # unstablePkgs = import nixpkgs-unstable {
+        #   inherit system;
+        #   config.allowUnfree = true;
+        # };
 
         grout-cli = grout.packages."${system}".grout-cli;
         grout-bulk = grout.packages."${system}".grout-bulk;
@@ -186,7 +189,19 @@
           # playlists — that ffmpeg/ffprobe cannot parse; PV probes them as
           # 1-second "BR-DISK" garbage. makemkvcon reads the playlists and
           # remuxes losslessly to MKV; mkvtoolnix covers general remux work).
-          unstablePkgs.makemkv
+          #
+          # makemkvcon version-gate workaround: nixpkgs 26.05 ships 1.18.4
+          # (2026-06-15), which refuses to run once older than ~60 days even
+          # with a current beta key, and v2.0.0 segfaults on `iso:` sources.
+          # faketime pins the clock inside 1.18.4's window; the beta key in
+          # ~/.MakeMKV/settings.conf (arr-util home PVC) satisfies the license
+          # check. Wrapper name shadows nothing (plain makemkv not installed).
+          (pkgs.writeShellScriptBin "makemkvcon" ''
+            exec env \
+              LD_PRELOAD=${pkgs.libfaketime}/lib/faketime/libfaketime.so.1 \
+              FAKETIME="2026-06-20" \
+              ${pkgs.makemkv}/bin/makemkvcon "$@"
+          '')
           mkvtoolnix
 
           # Shell utilities & linting
