@@ -38,7 +38,13 @@
     utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        # allowUnfree: makemkv (needed for BR-DISK/ISO remuxing of the
+        # /arr-data disc structures) is unfree-refused by default, which
+        # broke `nix build`/`nix run .#push` outside of an --impure env.
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
 
         helpers = fudo-nix-helpers.legacyPackages.${system};
 
