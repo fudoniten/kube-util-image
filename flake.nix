@@ -20,6 +20,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # makemkv 2.0.0 lives in unstable (26.05 still ships the expired 1.18.4,
+    # which hard-refuses to run even with a current beta key — verified
+    # 2026-11-12 remuxing Forbidden Planet's BDMV).
+    nixpkgs-unstable = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    };
+
     grout = {
       url = "github:fudoniten/grout";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +54,11 @@
         };
 
         helpers = fudo-nix-helpers.legacyPackages.${system};
+
+        unstablePkgs = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
 
         grout-cli = grout.packages."${system}".grout-cli;
         grout-bulk = grout.packages."${system}".grout-bulk;
@@ -174,7 +186,7 @@
           # playlists — that ffmpeg/ffprobe cannot parse; PV probes them as
           # 1-second "BR-DISK" garbage. makemkvcon reads the playlists and
           # remuxes losslessly to MKV; mkvtoolnix covers general remux work).
-          makemkv
+          unstablePkgs.makemkv
           mkvtoolnix
 
           # Shell utilities & linting

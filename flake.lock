@@ -6,7 +6,6 @@
         "nix-fetcher-data": "nix-fetcher-data",
         "nixpkgs": [
           "fudo-nix-helpers",
-          "nix-clj-helpers",
           "nixpkgs"
         ]
       },
@@ -75,7 +74,6 @@
       "inputs": {
         "nixpkgs": [
           "fudo-nix-helpers",
-          "nix-clj-helpers",
           "clj-nix",
           "nixpkgs"
         ]
@@ -189,18 +187,18 @@
     },
     "fudo-nix-helpers": {
       "inputs": {
-        "nix-clj-helpers": "nix-clj-helpers",
+        "clj-nix": "clj-nix",
         "nixpkgs": [
           "nixpkgs"
         ],
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1793388443,
-        "narHash": "sha256-XFSV/q3gOs4FBC9efNbuf1NBuWf5MQY9BWUK02LWDyA=",
+        "lastModified": 1793315412,
+        "narHash": "sha256-AnsnULO7hLy1II3PYd71wlbx+oxkAOeAL3/3MvNXtb4=",
         "owner": "fudoniten",
         "repo": "fudo-nix-helpers",
-        "rev": "cad8a9d7b5233bfc23e640371e7bcbf9c6c72c65",
+        "rev": "7bbae6a86a2d28e37836d812970a6ab284a6b99f",
         "type": "github"
       },
       "original": {
@@ -241,42 +239,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1794170962,
-        "narHash": "sha256-B8jncPQWg7Dpt//4qkXqv9C5e6Tc+C/GfxVuoseK8UY=",
+        "lastModified": 1793307234,
+        "narHash": "sha256-d3Hwnvo4DvS04HWkJCTkHKVPNpKdCba3Px0Nc3uTGF8=",
         "owner": "fudoniten",
         "repo": "grout",
-        "rev": "4f3fa63c3c815a87ea332c7aef8c2c29f03c1d12",
+        "rev": "c170bc24b1a4eef8d02e79bb0e0d92159c0e1248",
         "type": "github"
       },
       "original": {
         "owner": "fudoniten",
         "repo": "grout",
-        "type": "github"
-      }
-    },
-    "nix-clj-helpers": {
-      "inputs": {
-        "clj-nix": "clj-nix",
-        "nixpkgs": [
-          "fudo-nix-helpers",
-          "nixpkgs"
-        ],
-        "utils": [
-          "fudo-nix-helpers",
-          "utils"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793316955,
-        "narHash": "sha256-nevQe4SF4siRIrgFJ95tubE5Gob7kcRZK1oSbRzKa54=",
-        "owner": "fudoniten",
-        "repo": "nix-clj-helpers",
-        "rev": "9ff50116baf895b9a80faa39720b40dd997e53c2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fudoniten",
-        "repo": "nix-clj-helpers",
         "type": "github"
       }
     },
@@ -285,7 +257,6 @@
         "flake-parts": "flake-parts",
         "nixpkgs": [
           "fudo-nix-helpers",
-          "nix-clj-helpers",
           "clj-nix",
           "nixpkgs"
         ]
